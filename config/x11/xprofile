@@ -1,0 +1,10 @@
+#!/bin/sh
+
+xrandr --dpi 96
+xrandr --output DisplayPort-1 --mode 1920x1080 --primary --output HDMI-A-0 --mode 1920x1080 --left-of DisplayPort-1
+
+# autostart=""
+
+# for program in $autostart; do
+# 	pidof -sx "$program" || "$program" &
+# done >/dev/null 2>&1
