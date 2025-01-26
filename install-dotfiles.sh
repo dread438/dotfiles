@@ -1,10 +1,10 @@
 #!/bin/sh
 
-sudo mv ~/dotfiles /opt
-sudo mkdir /opt/backup
-sudo mv ~/* /opt/backup
-sudo mv ~/opt/dotfiles ~/
-sudo mv /opt/dotfiles ~/.dotfiles
+mv ~/dotfiles /tmp
+mkdir /tmp/backup
+find ~/ -mindepth 1 -maxdepth 1 -exec mv {} /tmp/backup \;
+mv /tmp/dotfiles ~/.dotfiles
+mv /tmp/backup ~/backup
 
 ln -s ~/.dotfiles/config ~/.config
 ln -s ~/.dotfiles/config/shell/profile ~/.zprofile
