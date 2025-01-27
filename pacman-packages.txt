@@ -1,0 +1,15 @@
+git
+neovim
+vi
+xorg-xrandr
+libxinerama
+libxft
+noto-fonts
+dmenu
+man-pages
+man-db
+openssh
+unclutter
+pamixer
+xclip
+libpulse

@@ -9,4 +9,3 @@ mv /tmp/backup ~/backup
 ln -s ~/.dotfiles/config ~/.config
 ln -s ~/.dotfiles/config/shell/profile ~/.zprofile
 ln -s ~/.dotfiles/config/x11/xinitrc ~/.xinitrc
-
