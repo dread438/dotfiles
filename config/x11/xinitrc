@@ -6,5 +6,5 @@ else
 	. "$HOME/.xprofile"
 fi
 
-slstatus &
-exec dwm
+dbus-update-activation-environment --all
+dbus-launch ssh-agent dwm
