@@ -13,3 +13,4 @@ unclutter
 pamixer
 xclip
 libpulse
+xwallpaper
