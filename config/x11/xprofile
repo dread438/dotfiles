@@ -1,8 +1,9 @@
 #!/bin/sh
 
 xrandr --dpi 96
-xrandr --output DisplayPort-1 --mode 1920x1080 --primary --output HDMI-A-0 --mode 1920x1080 --left-of DisplayPort-1
+# xrandr --output DisplayPort-1 --mode 1920x1080 --primary --output HDMI-A-0 --mode 1920x1080 --left-of DisplayPort-1
 # xrandr --output Virtual-1 --mode 1920x1080
+xrandr --output HDMI-A-0 --mode 1920x1080 --rate 75
 
 if [ -f "$XDG_DATA_HOME/wallpapers/aurora_1.jpg" ]; then
 	xwallpaper --zoom "$XDG_DATA_HOME/wallpapers/aurora_1.jpg"
