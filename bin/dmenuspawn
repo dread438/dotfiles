@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# Set default values
+DMENU_M="0"
+DMENU_FN="JetBrains Mono Nerd Font"
+DMENU_NB="#080808"
+DMENU_NF="#888888"
+DMENU_SB="#ffffff"
+DMENU_SF="#080808"
+
+# Parse command-line arguments
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        -m) DMENU_M="$2"; shift 2 ;;
+        -fn) DMENU_FN="$2"; shift 2 ;;
+        -nb) DMENU_NB="$2"; shift 2 ;;
+        -nf) DMENU_NF="$2"; shift 2 ;;
+        -sb) DMENU_SB="$2"; shift 2 ;;
+        -sf) DMENU_SF="$2"; shift 2 ;;
+        *) echo "Unknown parameter: $1"; exit 1 ;;
+    esac
+done
+
+# Get user input (executable name + optional arguments)
+selected=$(find $(echo $PATH | tr ':' ' ') -executable -type f | awk -F/ '{print $NF}' | \
+    dmenu -m "$DMENU_M" \
+          -fn "$DMENU_FN" \
+          -nb "$DMENU_NB" \
+          -nf "$DMENU_NF" \
+          -sb "$DMENU_SB" \
+          -sf "$DMENU_SF")
+
+# Split input into command and arguments
+cmd=$(echo "$selected" | awk '{print $1}')
+args=$(echo "$selected" | awk '{$1=""; print substr($0,2)}')
+
+# Find the full path of the executable
+full_cmd=$(find $(echo $PATH | tr ':' ' ') -executable -type f -name "$cmd" -print -quit)
+
+# Run the command with arguments (if found)
+if [ -n "$full_cmd" ]; then
+    "$full_cmd" $args
+else
+    echo "Error: Command '$cmd' not found in PATH."
+fi
