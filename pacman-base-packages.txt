@@ -9,7 +9,6 @@ noto-fonts-emoji
 dmenu
 man-pages
 man-db
-openssh
 unclutter
 pamixer
 xclip
@@ -30,3 +29,4 @@ xclip
 wget
 firefox
 xf86-video-amdgpu
+curl
