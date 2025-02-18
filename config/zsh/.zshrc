@@ -5,7 +5,6 @@ setopt interactive_comments
 
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 setopt inc_append_history
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
@@ -17,7 +16,7 @@ compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 SYNTAX_PLUG="/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
-VI_MODE_PLUG="/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+#VI_MODE_PLUG="/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 
 if [[ -f "$SYNTAX_PLUG" ]]; then
   source "$SYNTAX_PLUG" 2>/dev/null 
